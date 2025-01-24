@@ -29,9 +29,19 @@ export interface Pagination {
   total?: number;
 }
 
+export interface PageDataRes<T> {
+  list: T[];
+  total: number;
+}
+
 export type TimeRanger = [string, string];
 
 export interface GeneralChart {
   xAxis: string[];
   data: Array<{ name: string; value: number[] }>;
+}
+
+export interface PageQueryParams {
+  current?: any;
+  pageSize?: any;
 }
