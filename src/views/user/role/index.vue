@@ -89,7 +89,6 @@
         </template>
         <template #operations="{ record }">
           <a-button
-
               type="text"
               size="small"
               @click="handleEdit(record.id)"
@@ -116,6 +115,7 @@ import { Pagination } from '@/types/global';
 import { TableColumnData } from '@arco-design/web-vue/es/table/interface';
 import useLoading from '@/hooks/loading';
 import { useUserStore } from '@/store';
+import {getRolePage} from "@/api/role";
 
 const { loading, setLoading } = useLoading(true);
 const generateFormModel = () => {
@@ -171,7 +171,7 @@ const fetchData = async (
 ) => {
   setLoading(true);
   try {
-    const { data } = await getUserPageReq({
+    const { data } = await getRolePage({
       ...params,
       ...formModel.value,
     });
